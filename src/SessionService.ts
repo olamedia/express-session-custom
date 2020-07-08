@@ -10,12 +10,12 @@ export class SessionService {
     }
     async handleRequest(req: RequestWithSession, res: ServerResponse): Promise<Session> {
         // READ COOKIE
-        const cookieData = await this.options.cookieHandler.getCookie(req);
+        const cookieData = await this.options.cookieHandler.getCookie(req, this.options.cookie);
         const sid = await this.options.cookieEncoder.decode(cookieData);
         const session = await this.options.store.start(sid);
         // SET COOKIE
         const newCookieData = await this.options.cookieEncoder.encode(session.id);
-        await this.options.cookieHandler.setCookie(newCookieData, res);
+        await this.options.cookieHandler.setCookie(newCookieData, this.options.cookie, res);
 
         req.sessionId = session.id;
         req.session = session.data;

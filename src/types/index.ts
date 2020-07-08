@@ -5,3 +5,4 @@ export {Session} from './Session';
 export {SessionData} from './SessionData';
 export {SessionOptions} from './SessionOptions';
 
+export {Cookie} from './Cookie';

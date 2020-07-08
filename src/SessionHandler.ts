@@ -9,6 +9,7 @@ import {MemorySessionStore} from "./stubs";
 import {BasicCookieHandler} from "./stubs";
 import {CookieEncoderStub} from "./stubs";
 import {UidSafeGenerator} from "./stubs";
+import {FixedCookieOptions} from "./types/FixedCookieOptions";
 
 const defaultOptions: Partial<SessionOptions> = {
     cookie: {
@@ -23,11 +24,11 @@ export const session: SessionMiddlewareGenerator = (partialOptions) => {
         partialOptions = {};
     }
 
-    const cookieOptions = Object.assign({}, defaultOptions.cookie, partialOptions.cookie);
+    const cookieOptions = Object.assign({}, defaultOptions.cookie, partialOptions.cookie) as FixedCookieOptions;
 
     if (partialOptions.cookieHandler === undefined){
         // Basic cookie reader and writer
-        partialOptions.cookieHandler = new BasicCookieHandler(cookieOptions);
+        partialOptions.cookieHandler = new BasicCookieHandler();
     }
 
     if (partialOptions.cookieEncoder === undefined){

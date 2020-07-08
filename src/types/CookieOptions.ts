@@ -5,9 +5,8 @@ export interface CookieOptions {
     expires?: Date;
     maxAge?: number;
     httpOnly?: boolean;
-    secure?: boolean | 'auto';
+    secure?: boolean;
     sameSite?: boolean | 'lax' | 'strict' | 'none';
 
-    //signed?: boolean;
-    //encode?: (val: string) => string;
 }
+

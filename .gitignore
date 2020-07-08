@@ -2,7 +2,5 @@
 # Dependency directories
 node_modules/
 
-dist/
+lib/
 .idea/
-
-!/dist/.gitkeep
