@@ -10,13 +10,13 @@ Provides the following  contracts to make own implementation for each part.
 <br/>Default implementation uses `uid-safe` package
 * `SessionStore` Store for session data
 
-###Minimal setup
+### Minimal setup
 Only use for debug since default `SessionStore` keeps data in memory and will lose them at each script reload  
 ```js
 app.use(session());
 ```
 
-###Basic syntax
+### Basic syntax
 Similar to `express-session` package. 
 The notable difference is that `name` moved to `cookie` options
 
@@ -34,7 +34,7 @@ app.use(
 );
 ```
 
-###Customization
+### Customization
 Example code for each implementation can be found in `stubs/` folder.
 ```js
 app.use(
@@ -50,5 +50,5 @@ app.use(
 );
 ```
 
-###License
+### License
 MIT
