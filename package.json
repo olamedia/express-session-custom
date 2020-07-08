@@ -1,5 +1,5 @@
 {
-  "name": "connect-session",
+  "name": "express-session-custom",
   "version": "1.0.0",
   "author": "olamedia <olamedia@gmail.com>",
   "license": "MIT",
@@ -11,7 +11,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/olamedia/connect-session-custom"
+    "url": "https://github.com/olamedia/express-session-custom"
   },
   "scripts": {
     "clean": "rm -R ./lib && mkdir ./lib",
