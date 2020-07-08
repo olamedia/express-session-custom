@@ -1,4 +1,4 @@
-# connect-session-custom
+# express-session-custom
 
 Works as Express/Connect middleware
 
@@ -9,6 +9,16 @@ Provides the following  contracts to make own implementation for each part.
 * `IdGenerator` Generates unique session ID
 <br/>Default implementation uses `uid-safe` package
 * `SessionStore` Store for session data
+
+### Installation
+
+```shell script
+npm install --save express-session-custom
+```
+OR
+```shell script
+yarn add express-session-custom
+```
 
 ### Minimal setup
 Only use for debug since default `SessionStore` keeps data in memory and will lose them at each script reload  
