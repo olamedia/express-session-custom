@@ -3,6 +3,15 @@ import {Session} from "./types";
 import {RequestWithSession} from "./types";
 import {ServerResponse} from "http";
 
+const filterMethods: (data: object) => object = (data) => {
+    return Object.keys(data).reduce((result, key) => {
+        if (typeof data[key] !== 'function'){
+            result[key] = data[key];
+        }
+        return result;
+    }, {});
+};
+
 export class SessionService {
     constructor(
         private options: SessionOptions
@@ -22,7 +31,7 @@ export class SessionService {
         req.session = {
             ...session.data,
             async save(){
-                return store.setAll(session.id, session.data);
+                return store.setAll(session.id, filterMethods(req.session.data));
             },
             async destroy() {
                 return store.delete(session.id);
