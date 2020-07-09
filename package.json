@@ -1,6 +1,6 @@
 {
   "name": "express-session-custom",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "author": "olamedia <olamedia@gmail.com>",
   "license": "MIT",
   "private": false,
@@ -23,11 +23,13 @@
   },
   "dependencies": {
     "cookie": "^0.4.1",
+    "debug": "^4.1.1",
     "uid-safe": "latest"
   },
   "devDependencies": {
     "@types/connect": "^3.4.33",
     "@types/cookie": "^0.4.0",
+    "@types/debug": "^4.1.5",
     "@types/jest": "^26.0.4",
     "connect": "^3.7.0",
     "husky": "^4.2.5",

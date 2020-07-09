@@ -11,6 +11,10 @@ import {CookieEncoderStub} from "./stubs";
 import {UidSafeGenerator} from "./stubs";
 import {FixedCookieOptions} from "./types/FixedCookieOptions";
 
+import { debug } from 'debug';
+
+const logger = debug("express-session-custom:session()");
+
 const defaultOptions: Partial<SessionOptions> = {
     cookie: {
         name: 'id',
@@ -55,7 +59,7 @@ export const session: SessionMiddlewareGenerator = (partialOptions) => {
     return  async (req, res, next) => {
 
         await sessionService.handleRequest(req as RequestWithSession, res).catch(reason => {
-            console.log(reason); // FIXME
+            logger.log(reason);
         });
 
         next();

@@ -1,19 +1,24 @@
 import {CookieHandler as CookieHandlerContract} from "../contracts/CookieHandler";
 import {IncomingMessage} from "connect";
 import {CookieOptions} from "../types";
-import { parse as parseCookies, serialize as serializeCookie } from 'cookie';
+import {parse as parseCookies, serialize as serializeCookie} from 'cookie';
 import {ServerResponse} from "http";
+import {debug} from "debug";
+
+const logger = debug("express-session-custom:CookieHandler");
 
 export class BasicCookieHandler implements CookieHandlerContract{
 
     async getCookie(req: IncomingMessage, options: CookieOptions) {
         const cookies = parseCookies(req.headers.cookie);
+
         return options.name in cookies ? cookies[options.name] : null;
     }
 
     async setCookie(value: string, cookie: CookieOptions, res: ServerResponse) {
 
         if (res.headersSent){
+            logger.log("Headers are sent already");
             throw new Error('Headers are sent already, can\'t set a cookie')
         }
 
@@ -25,9 +30,9 @@ export class BasicCookieHandler implements CookieHandlerContract{
             secure: cookie.secure,
             expires: cookie.expires,
             maxAge: cookie.maxAge
-        })
+        });
 
-        const prev: string[] | undefined = res.getHeader('Set-Cookie') as string[] | undefined
+        const prev: string[] | undefined = res.getHeader('Set-Cookie') as string[] | undefined;
 
         const header: string[] = prev === undefined ? [cookieData] : [...prev, cookieData];
 
