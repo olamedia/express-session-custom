@@ -69,5 +69,41 @@ app.use(
 );
 ```
 
+### Session object
+Middleware creates session object at request, 
+which provides access to session data and a few useful helper methods 
+(see `SessionDataWithHelpers` interface).
+
+```js
+app.use(async (req, res, next) => {
+    req.session.mykey = 'value';
+    req.session.save();
+ 
+    next()
+});
+```
+
+```js
+app.use(async (req, res, next) => {
+    req.session.destroy();
+
+    next()
+}); 
+```
+
+### Nest.js
+Nest.js have `@Session()` decorator at `@nestjs/common` package, which returns request.session object
+```js
+import { Controller, Get, Session } from '@nestjs/common';
+
+@Controller()
+class MyController{
+    @Get('myAction')
+    myAction(@Session() session){
+    
+    }
+}
+```
+
 ### License
 MIT
