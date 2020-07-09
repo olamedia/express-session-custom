@@ -16,6 +16,7 @@
   "scripts": {
     "typecheck": "node_modules/.bin/tsc -p .",
     "test:unit": "node_modules/.bin/jest --coverage",
+    "test": "npm run test:unit",
     "clean": "rm -R ./lib && mkdir ./lib",
     "build": "tsc --project tsconfig.build.json",
     "prepare": "npm run build"

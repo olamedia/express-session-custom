@@ -1,5 +1,7 @@
 # express-session-custom
 
+[![npm version](https://badge.fury.io/js/express-session-custom.svg)](https://badge.fury.io/js/express-session-custom)
+
 Works as Express/Connect middleware<br />
 The purpose of this library is the customization of every step.
 > If you need everything ready, use express-session instead.
