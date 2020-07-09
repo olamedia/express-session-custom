@@ -37,14 +37,21 @@ export class MemorySessionStore implements SessionStore{
 
         throw new Error('session not found');
     }
-    /**
-     * Can be write_close in php
-     *
-     */
+
     async setAll(sid: string, data: SessionData): Promise<boolean> {
 
         this.sessions[sid] = data;
 
         return true;
+    }
+
+    async delete(sid: string): Promise<boolean> {
+        if (sid in this.sessions) {
+            delete this.sessions[sid];
+
+            return true;
+        }
+
+        throw new Error('session not found');
     }
 }

@@ -13,4 +13,5 @@ export interface SessionStore {
 
     setAll(sid: string, data: SessionData): Promise<boolean>
 
+    delete(sid: string): Promise<boolean>
 }
