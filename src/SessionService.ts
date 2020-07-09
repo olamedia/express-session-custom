@@ -4,7 +4,7 @@ import {RequestWithSession} from "./types";
 import {ServerResponse} from "http";
 import {debug} from "debug";
 
-const logger = debug("express-session-custom:SessionService");
+const log = debug("express-session-custom:SessionService");
 
 const filterMethods: (data: object) => object = (data) => {
     return Object.keys(data).reduce((result, key) => {
@@ -25,9 +25,9 @@ export class SessionService {
         // READ COOKIE
         const cookieData = await this.options.cookieHandler.getCookie(req, this.options.cookie);
         const sid = await this.options.cookieEncoder.decode(cookieData);
-        logger.log("SID found %o", sid);
+        log("SID found %o", sid);
         const session = await store.start(sid);
-        logger.log("SID set %o", session.id);
+        log("SID set %o", session.id);
         // SET COOKIE
         const newCookieData = await this.options.cookieEncoder.encode(session.id);
         await this.options.cookieHandler.setCookie(newCookieData, this.options.cookie, res);

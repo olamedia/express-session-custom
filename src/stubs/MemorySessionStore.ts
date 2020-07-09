@@ -2,6 +2,9 @@ import {SessionStore} from "../contracts";
 import {Session} from "../types";
 import {SessionData} from "../types";
 import {IdGenerator} from "../contracts";
+import {debug} from "debug";
+
+const log = debug("express-session-custom:MemorySessionStore");
 
 export class MemorySessionStore implements SessionStore{
     private sessions = {};
@@ -35,6 +38,7 @@ export class MemorySessionStore implements SessionStore{
             }
         }
 
+        log('session %o not found', sid);
         throw new Error('session not found');
     }
 
@@ -52,6 +56,7 @@ export class MemorySessionStore implements SessionStore{
             return true;
         }
 
+        log('session %o not found', sid);
         throw new Error('session not found');
     }
 }

@@ -5,7 +5,7 @@ import {parse as parseCookies, serialize as serializeCookie} from 'cookie';
 import {ServerResponse} from "http";
 import {debug} from "debug";
 
-const logger = debug("express-session-custom:CookieHandler");
+const log = debug("express-session-custom:CookieHandler");
 
 export class BasicCookieHandler implements CookieHandlerContract{
 
@@ -18,7 +18,7 @@ export class BasicCookieHandler implements CookieHandlerContract{
     async setCookie(value: string, cookie: CookieOptions, res: ServerResponse) {
 
         if (res.headersSent){
-            logger.log("Headers are sent already");
+            log("Headers are sent already");
             throw new Error('Headers are sent already, can\'t set a cookie')
         }
 
