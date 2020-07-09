@@ -15,7 +15,6 @@ Provides the following  contracts to make own implementation for each part.
 ### Possible use cases 
 * to have the same session in different languages
 * having a backend which generates session IDs itself
-* if you can't 
  
 ### Installation
 
