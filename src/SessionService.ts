@@ -31,7 +31,7 @@ export class SessionService {
         req.session = {
             ...session.data,
             async save(){
-                return store.setAll(session.id, filterMethods(req.session.data));
+                return store.setAll(session.id, filterMethods(req.session));
             },
             async destroy() {
                 return store.delete(session.id);
