@@ -1,6 +1,6 @@
 {
   "name": "express-session-custom",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "olamedia <olamedia@gmail.com>",
   "license": "MIT",
   "private": false,
@@ -14,8 +14,10 @@
     "url": "https://github.com/olamedia/express-session-custom"
   },
   "scripts": {
+    "typecheck": "node_modules/.bin/tsc -p .",
+    "test:unit": "node_modules/.bin/jest --coverage",
     "clean": "rm -R ./lib && mkdir ./lib",
-    "build": "tsc",
+    "build": "tsc --project tsconfig.build.json",
     "prepare": "npm run build"
   },
   "dependencies": {
@@ -25,8 +27,12 @@
   "devDependencies": {
     "@types/connect": "^3.4.33",
     "@types/cookie": "^0.4.0",
+    "@types/jest": "^26.0.4",
     "connect": "^3.7.0",
-    "husky": "^4.2.5"
+    "husky": "^4.2.5",
+    "jest": "^26.1.0",
+    "ts-jest": "^26.1.1",
+    "typescript": "^3.9.6"
   },
   "husky": {
     "hooks": {

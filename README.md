@@ -1,8 +1,10 @@
 # express-session-custom
 
-Works as Express/Connect middleware
+Works as Express/Connect middleware<br />
+The purpose of this library is the customization of every step.
+> If you need everything ready, use express-session instead.
 
-Provides the following  contracts to make own implementation for each part. 
+Provides the following  contracts to make own implementation for each part.
 * `CookieEncoder` Encoding, decoding cookie value, can be used for signing. 
 <br />Default implementation passes value untouched in both sides. 
 * `CookieHandler` Gets, sets cookie with given options
@@ -10,6 +12,11 @@ Provides the following  contracts to make own implementation for each part.
 <br/>Default implementation uses `uid-safe` package
 * `SessionStore` Store for session data
 
+### Possible use cases 
+* to have the same session in different languages
+* having a backend which generates session IDs itself
+* if you can't 
+ 
 ### Installation
 
 ```shell script
