@@ -7,15 +7,15 @@ beforeEach(() => {
 });
 
 
-test('encode returns value unmodified', () => {
-    const encodedValue = encoder.encode('some-value');
+test('encode returns value unmodified', async () => {
+    const encodedValue = await encoder.encode('some-value');
 
     expect(encodedValue).toStrictEqual('some-value');
 });
 
 
-test('decode returns value unmodified', () => {
-    const decodedValue = encoder.decode('some-value');
+test('decode returns value unmodified', async () => {
+    const decodedValue = await encoder.decode('some-value');
 
     expect(decodedValue).toStrictEqual('some-value');
 });

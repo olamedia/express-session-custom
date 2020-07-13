@@ -1,5 +1,5 @@
 
 export interface CookieEncoder {
-    encode(value: string): string
-    decode(value: string): string
+    decode(value: string): Promise<string>
+    encode(value: string): Promise<string>
 }

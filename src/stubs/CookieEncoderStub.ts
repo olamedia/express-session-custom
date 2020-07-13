@@ -1,11 +1,11 @@
 import {CookieEncoder} from "../contracts";
 
 export class CookieEncoderStub implements CookieEncoder{
-    decode(value: string): string {
+    async decode(value: string): Promise<string> {
         return value;
     }
 
-    encode(value: string): string {
+    async encode(value: string): Promise<string> {
         return value;
     }
 
