@@ -24,8 +24,11 @@ export class SessionService {
         const store = this.options.store;
         // READ COOKIE
         const cookieData = await this.options.cookieHandler.getCookie(req, this.options.cookie);
-        const sid = await this.options.cookieEncoder.decode(cookieData);
-        log("SID found %o", sid);
+        let sid: string = undefined;
+        if (cookieData) {
+            sid = await this.options.cookieEncoder.decode(cookieData);
+            log("SID found %o", sid);
+        }
         const session = await store.start(sid);
         log("SID set %o", session.id);
         // SET COOKIE
