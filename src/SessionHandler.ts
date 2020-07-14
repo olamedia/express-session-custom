@@ -59,7 +59,7 @@ export const session: SessionMiddlewareGenerator = (partialOptions) => {
     return  async (req, res, next) => {
 
         await sessionService.handleRequest(req as RequestWithSession, res).catch(reason => {
-            logger.log(reason);
+            logger(reason);
         });
 
         next();
